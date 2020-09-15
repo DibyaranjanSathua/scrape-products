@@ -8,7 +8,7 @@ import json
 import smtplib
 from email.message import EmailMessage
 from collections import defaultdict
-
+import shutil
 
 import colorama
 
@@ -82,6 +82,10 @@ def main():
 
     else:
         print(f"{colorama.Fore.GREEN}No differences found")
+
+    # Copying the current hash to reference hash
+    print(f"{colorama.Fore.GREEN}Saving the current hash as the reference hash")
+    shutil.copyfile(current_hash_file, reference_hash_file)
 
 
 if __name__ == "__main__":
